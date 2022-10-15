@@ -13,6 +13,16 @@
     z-index: 2;
 }
 
+iframe {
+  width: calc(100% - 20px);
+  padding: 10px;
+  min-height: 500px;
+}
+
+#content small {
+  padding: 3px;
+}
+
 .stuff {
   text-align: center;
 }
