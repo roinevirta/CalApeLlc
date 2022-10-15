@@ -70,6 +70,10 @@ footer {
     display: block;
 }
 
+.navbutton {
+  float: right !important;
+}
+
 .tabs button:hover {
     background-color: #d3d3d3;
 }
