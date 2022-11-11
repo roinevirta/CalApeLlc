@@ -18,12 +18,13 @@
     <body>
         <div id="content">
           <div class="stuff">
-            <br/><br/>
+            <br/>
               <b>Crypto Calendar</b>
               <br/><br/>
 
               <div class="tabs">
                 <button class="tabsbutton" onclick="openCal(event, 'Finland')" id="defaultTab">Finland</button>
+                <button class="tabsbutton" onclick="openCal(event, 'VirtualEvents')">Virtual Events</button>
                 <button class="tabsbutton" onclick="openCal(event, 'More')">More</button>
                 <button class="navbutton" onclick="window.open('https://ape.llc','_self')">Back to ape.llc</button>
               </div>
@@ -34,6 +35,12 @@
                 <br/><br/>
               </div>
 
+              <div class="calendarcontainer" id="VirtualEvents">
+                <br/>
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FHelsinki&showTitle=0&showPrint=0&showTabs=1&mode=AGENDA&title=Crypto%20Calendar%20(Virtual%20Events)&hl=en_GB&src=MjdiY2U5NGMxYTFjNGFjNmY3OGIzNWZmY2JhNzU4NWZlNjllMzk1M2FlNzkyMzQ2OWEyOTI2ODcyNGQ1Y2YzOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23009688" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+                <br/><br/>
+              </div>
+
               <div class="calendarcontainer" id="More">
                 <br/>
                 <p>Do you know a good calendar to include? Please ping me on TG @roinevirta</p>
@@ -41,8 +48,9 @@
               </div>
 
               <br/><br/>
-              <small>Are you missing an event? Do you want to include your calendar on this site? TG: @roinevirta</small>
-              <br/><br/><br/><br/>
+              <small>Are you missing an event? Do you want to include your calendar on this site?</small><br/>
+              <small>Contact me on TG: @roinevirta or <a href="https://github.com/roinevirta/CalApeLlc" target="_blank">contribute on GitHub</a></small>
+              <br/><br/><br/>
           </div>
       </div>
       <footer>
