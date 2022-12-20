@@ -97,4 +97,6 @@ footer {
     display: none;
     border: 1px solid #b4b4b4;
     border-top: none;
+    min-height: 100px;
+    background: #fff url("loading.gif") no-repeat 50% 50% !important;
 }
