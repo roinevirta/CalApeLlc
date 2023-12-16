@@ -53,6 +53,17 @@
           setInterval(fetchBtcPrice, 60000);
           setInterval(fetchEthPrice, 60000);
           setInterval(fetchBonkPrice, 60000);
+
+          window.addEventListener('scroll', function() {
+            var tabs = document.getElementById('tabs');
+            var content = document.getElementById('content');
+            
+            if (window.scrollY > content.offsetTop) {
+                tabs.classList.add('sticky');
+            } else {
+                tabs.classList.remove('sticky');
+            }
+          });
       </script>
 
     </head>
@@ -60,7 +71,7 @@
         <div id="content">
           <div class="stuff">
 
-              <div class="tabs">
+              <div class="tabs" id="tabs">
                 <button class="titleUnit">Crypto Calendar</button>
                 <button class="tabsbutton" onclick="openCal(event, 'Equilibrium')" id="defaultTab">Global Events</button>
                 <button class="tabsbutton" onclick="openCal(event, 'Finland')">Finland</button>

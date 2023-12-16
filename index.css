@@ -55,6 +55,13 @@ div.stuff {
     background-color: #e6b12f;
     text-align: center;
 }
+
+.tabs.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
   
 .tabs button {
     background-color: inherit;
@@ -109,8 +116,4 @@ button.navbutton {
     border-top: none;
     min-height: 100px;
     background: #fff url("loading.gif") no-repeat 50% 50% !important;
-}
-
-#More {
-  background: none !important;
 }
