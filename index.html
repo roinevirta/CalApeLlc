@@ -15,20 +15,60 @@
         <script type="text/javascript">WebFont.load({  google: {    families: ["Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic","Inconsolata:400,700"]  }});</script>
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
         <script defer data-domain="cal.ape.llc" src="https://plausible.io/js/script.js"></script>
+
+        <script>     
+          function fetchBtcPrice() {
+              fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur`)
+                  .then(response => response.json())
+                  .then(data => {
+                      const price = data['bitcoin'].eur;
+                      document.getElementById('crypto-price-btc').innerText = `BTC ${price}€`;
+                  })
+                  .catch(error => console.error('Error fetching data:', error));
+          }
+          fetchBtcPrice();
+
+          function fetchEthPrice() {
+              fetch(`https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur`)
+                  .then(response => response.json())
+                  .then(data => {
+                      const price = data['ethereum'].eur;
+                      document.getElementById('crypto-price-eth').innerText = `ETH ${price}€`;
+                  })
+                  .catch(error => console.error('Error fetching data:', error));
+          }
+          fetchEthPrice();
+
+          function fetchBonkPrice() {
+              fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bonk&vs_currencies=eur`)
+                  .then(response => response.json())
+                  .then(data => {
+                      const price = data['bonk'].eur;
+                      document.getElementById('crypto-price-bonk').innerText = `BONK ${price}€`;
+                  })
+                  .catch(error => console.error('Error fetching data:', error));
+          }
+          fetchBtcPrice();
+          
+          setInterval(fetchBtcPrice, 60000);
+          setInterval(fetchEthPrice, 60000);
+          setInterval(fetchBonkPrice, 60000);
+      </script>
+
     </head>
     <body>
         <div id="content">
           <div class="stuff">
-            <br/>
-              <b>Crypto Calendar</b>
-              <br/><br/>
 
               <div class="tabs">
+                <button class="titleUnit">Crypto Calendar</button>
                 <button class="tabsbutton" onclick="openCal(event, 'Equilibrium')" id="defaultTab">Global Events</button>
                 <button class="tabsbutton" onclick="openCal(event, 'Finland')">Finland</button>
                 <button class="tabsbutton" onclick="openCal(event, 'VirtualEvents')">Virtual Events</button>
-                <button class="tabsbutton" onclick="openCal(event, 'More')">More</button>
                 <button class="navbutton" onclick="window.open('https://ape.llc','_self')">Back to ape.llc</button>
+                <button class="tickerUnit"><div id="crypto-price-bonk">BONK loading...</div></button>
+                <button class="tickerUnit"><div id="crypto-price-eth">Ξ loading...</div></button>
+                <button class="tickerUnit"><div id="crypto-price-btc">₿ loading...</div></button>
               </div>
 
               <div class="calendarcontainer" id="Equilibrium">
@@ -42,7 +82,6 @@
               <div class="calendarcontainer" id="Finland">
                 <br/>
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FHelsinki&showTitle=0&title=Crypto%20Calendar%20(Finland)&showPrint=0&showTabs=1&mode=AGENDA&hl=en_GB&src=MTA1MTE5ZjgzMzc3ZjY5NjAxNzcxZWRlZGM2MDFlZDcxNjU1YjYyZTc1NDJiYTY0ODNiZmVkNzEyZjBjMDRkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%2344a703" style="border-width:0" frameborder="0" scrolling="no"></iframe>
-                <img src="android-chrome-192x192.png" style="max-width:96px"/><br/>
                 <small>Sponsored by <a href="https://ape.llc" target="_blank">Ape LLC</a></small><br/><br/>
                 <small><i>Missing an event? Contact @roinevirta on TG.</i></small>
                 <br/><br/>
@@ -51,23 +90,13 @@
               <div class="calendarcontainer" id="VirtualEvents">
                 <br/>
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FHelsinki&showTitle=0&showPrint=0&showTabs=1&mode=AGENDA&title=Crypto%20Calendar%20(Virtual%20Events)&hl=en_GB&src=MjdiY2U5NGMxYTFjNGFjNmY3OGIzNWZmY2JhNzU4NWZlNjllMzk1M2FlNzkyMzQ2OWEyOTI2ODcyNGQ1Y2YzOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23009688" style="border-width:0" frameborder="0" scrolling="no"></iframe>
-                <img src="android-chrome-192x192.png" style="max-width:96px"/><br/>
                 <small>Sponsored by <a href="https://ape.llc" target="_blank">Ape LLC</a></small><br/><br/>
                 <small><i>Missing an event? Contact @roinevirta on TG.</i></small>
                 <br/><br/>
               </div>
-
-              <div class="calendarcontainer" id="More">
-                <br/><br/><br/>
-                <p>Would you like to include your calendar on this site?<br/><br/> Please ping me on TG @roinevirta</p>
-                <br/><br/><br/>
-              </div>
-              <br/><br/><br/>
+              <br/>
           </div>
       </div>
-      <footer>
-        <a href="https://ape.llc/">Brought to you by ape.llc</a>
-      </footer>
 
       <script>
         function openCal(evt, cityName) {
